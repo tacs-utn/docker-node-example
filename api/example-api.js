@@ -44,7 +44,7 @@ function initialize(){
 }
 
 process.on('SIGINT', function() {
-    repository.disconnect();
+    usersRepo.disconnect();
     process.exit();
 });
 
