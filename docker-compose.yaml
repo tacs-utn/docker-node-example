@@ -1,0 +1,15 @@
+version: '2'
+services:
+  api:
+    build: ./api
+    container_name: api_service
+    ports:
+     - "8080:8080"
+    links:
+      - db:db
+    depends_on:
+     - db
+    environment:
+     - DATABASE_HOST=db
+  db:
+    build: ./database

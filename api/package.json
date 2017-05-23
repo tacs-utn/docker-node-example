@@ -1,0 +1,30 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "API example.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tacs/docker-node-example.git"
+  },
+  "main": "example-api.js",
+  "scripts": {
+    "start": "node example-api.js",
+    "debug": "node-debug example-api.js",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "mysql": "^2.10.2"
+  },
+  "devDependencies": {
+    "eslint": "^2.7.0"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    },
+    "rules": {
+      "semi": 2
+    }
+  }
+}
