@@ -60,7 +60,8 @@ function randomItem(response) {
     usersRepo.getUsers().then((users) => {
             usersJson = (users.map((user) => { return {
               email: user.email,
-              phoneNumber: user.phone_number
+              phoneNumber: user.phone_number,
+              lastname: user.lastname
             };
         }));
         var json = JSON.stringify({

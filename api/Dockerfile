@@ -10,5 +10,5 @@ RUN cd /app; \
 # Expose our server port.
 EXPOSE 8080
 
-# Run our app.
-CMD ["node", "/app/example-api.js"]
+# Run our app supposing the source is in /code directory
+CMD ["node", "/app/example-api.js", "5"]

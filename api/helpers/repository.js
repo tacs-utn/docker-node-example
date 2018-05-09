@@ -17,7 +17,7 @@ class Repository {
   getUsers() {
     return new Promise((resolve, reject) => {
 
-      this.connection.query('SELECT email, phone_number FROM directory', (err, results) => {
+      this.connection.query('SELECT email, lastname, phone_number FROM directory', (err, results) => {
         if(err) {
           this.connection = mysql.createConnection(this.connectionSettings);
           return reject(new Error('An error occured getting the users: ' + err));
@@ -26,7 +26,8 @@ class Repository {
         resolve((results || []).map((user) => {
           return {
             email: user.email,
-            phone_number: user.phone_number
+            phone_number: user.phone_number,
+            lastname: user.lastname
           };
         }));
       });
@@ -39,7 +40,7 @@ class Repository {
     return new Promise((resolve, reject) => {
 
       //  Fetch the customer.
-      this.connection.query('SELECT email, phone_number FROM directory WHERE email = ?', [email], (err, results) => {
+      this.connection.query('SELECT email, lastname, phone_number FROM directory WHERE email = ?', [email], (err, results) => {
 
         if(err) {
           return reject(new Error('An error occured getting the user: ' + err));
